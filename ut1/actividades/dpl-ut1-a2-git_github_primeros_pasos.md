@@ -4,42 +4,52 @@
 ## Elementos curriculares
 
 * **RA6**. Elabora la documentación de la aplicación Web evaluando y seleccionando herramientas de generación de documentación y control de versiones.
-    * **CE 6.a**: Se han identificado diferentes herramientas de generación de documentación.
-    * **CE 6.c**: Se han utilizado diferentes formatos para la documentación.
-    * **CE 6.d**: Se han utilizado herramientas colaborativas para la elaboración y mantenimiento de la documentación.
-    * **CE 6.e**: Se ha instalado, configurado y utilizado un sistema de control de versiones.
-    * **CE 6.f**: Se ha garantizado la accesibilidad y seguridad de la documentación almacenada por el sistema de control de versiones.
+  * **CE 6.a**: Se han identificado diferentes herramientas de generación de documentación.
+  * **CE 6.c**: Se han utilizado diferentes formatos para la documentación.
+  * **CE 6.d**: Se han utilizado herramientas colaborativas para la elaboración y mantenimiento de la documentación.
+  * **CE 6.e**: Se ha instalado, configurado y utilizado un sistema de control de versiones.
+  * **CE 6.f**: Se ha garantizado la accesibilidad y seguridad de la documentación almacenada por el sistema de control de versiones.
+
 ## 1. Introducción
-Git es una herramienta de control de versiones. Permite controlar el proceso de creación de software1 llevando un registro exhaustivo de todos los cambios realizados.
+
+Git es una herramienta de control de versiones. Permite controlar el proceso de creación de software llevando un registro exhaustivo de todos los cambios realizados.
 
 Ofrece la posibilidad de crear versiones, de ramificar un proyecto en diferentes ramas e incluso de volver hacia atrás deshaciendo los últimos cambios realizados.
 
-Git es un programa libre y gratuito que se distribuye mediante la licencia GNU (GPL 2.0)
+Git es un programa libre y gratuito que se distribuye mediante la licencia **GNU (GPL 2.0)**
 
 **Actividad 1**. Investiga y contesta. ¿Quién es el propietario actual de github?¿En qué año lo adquirió?¿A qué precio?
 
 > respuesta aquí
 
 ## 2. Git. Instalación
+
 Lo tenemos instalado por defecto en nuestros equipos. Podemos comprobarlo ejecutando:
 
 ```bash
 $ git --version
 git version 2.25.1
 ```
+
 ## Configuración inicial
+
 Antes de usar Git es conveniente emplear unos minutos en configurar la herramienta.
 
 Lo primero que hay que hacer es indicar el nombre y el correo electrónico.
+
 ```bash
 git config --global user.name "Alan Brito Delgado"
 git config --global user.email "alan.brito.delgado@gmail.com"
 ```
+
 Para realizar ciertas acciones se nos pedirá una contraseña. Puede resultar tedioso tener que introducirla constantemente. Git permite “cachear” la contraseña de modo que solo hará falta introducirla una vez al principio de la sesión.
+
 ```bash
 git config --global credential.helper 'cache --timeout=36000'
 ```
+
 Para mostrar la configuración actual de **git** ejecutamos:
+
 ```bash
 $ git config -l
 user.email=alan.brito.delgado@gmail.com
@@ -49,10 +59,10 @@ credential.helper=cache --timeout=36000
 
 **Actividad 2**. Realiza la configuración básica de Git. Inserta a continuación captura con el resultado de ejecutar `git config -l`
 
-
 ## 3. Github. Creación de una cuenta y configuración básica
 
 ### 3.1. ¿Qué es github?
+
 GitHub es una plataforma web que permite alojar proyectos controlados mediante Git. En GitHub tendremos una especie de “espejo” o duplicado de los proyectos que tenemos en nuestro propio ordenador y, además, podremos ver los proyectos de otra mucha gente.
 
 GitHub funciona también como una red social de programadores en la que se pueden votar los proyectos y los usuarios. Cada usuario puede establecer vínculos con otros usuarios y puede seguir lo que hace.
@@ -81,6 +91,7 @@ Completamos las acciones del asistente y seleccionamos en el último paso el pla
 > Respuesta aquí
 
 ### 3.3. Configuración de GitHub
+
 Antes de realizar cualquier acción dentro de GitHub es conveniente realizar unos ajustes previos.
 
 Haz clic en el icono de tu avatar (inicialmente se asigna un avatar aleatorio por defecto). En el menú desplegable que aparece selecciona Your profile.
@@ -89,7 +100,7 @@ Haz clic en el icono de tu avatar (inicialmente se asigna un avatar aleatorio po
 
 Ahora haz clic en el botón **Edit profile**.
 
-Cambia el horroroso **avatar** que te asigna GitHub. Podrías usar una foto en la que se te reconozca. No pongas una foto de una orla ni una en la que aparezcas con traje y corbata. Recuerda que GitHub es una herramienta para programadores, no para agentes de bolsa ni corredores de seguros. 
+Cambia el horroroso **avatar** que te asigna GitHub. Podrías usar una foto en la que se te reconozca. No pongas una foto de una orla ni una en la que aparezcas con traje y corbata. Recuerda que GitHub es una herramienta para programadores, no para agentes de bolsa ni corredores de seguros.
 
 Ni se te ocurra poner una foto de tu mascota, de tu novio/a o de tu coche. Hay muchos perfiles de buenos programadores en GitHub estropeados por una mala foto.
 
@@ -112,7 +123,9 @@ Por último, si quieres decirle al mundo que estás disponible para que te contr
 **Actividad 4** Inserta captura en la que se muestre tu perfil en **GitHub**
 
 ## Primeros pasos con Git y Github
+
 ### 4.1. Creación de repositorios en GitHub
+
 Para crear un repositorio en GitHub, en la página de inicio de GitHub, con la sesión iniciada hacemos click en **Create Repository**
 
 ![](https://i.imgur.com/z8Ky6m5.png)
@@ -120,7 +133,6 @@ Para crear un repositorio en GitHub, en la página de inicio de GitHub, con la s
 Escribe el nombre del repositorio en el campo **Repository name**. Vamos a llamarlo **intro-github**
 
 >`Debe ser un nombre lo más claro y conciso posible. No se permiten espacios en blanco ni caracteres especiales en este campo. Las palabras pueden estar separadas por guiones`
-
 
 El campo Description es opcional, no obstante es muy recomendable rellenarlo. Esta casilla debe contener la descripción del repositorio, con una línea es suficiente.
 
@@ -143,11 +155,13 @@ Para clonar un repositorio tan solo nos hace falta saber su dirección exacta en
 Vamos a ver un caso práctico clonando un repositorio:
 
 ```bash
-$ mkdir temp
-$ cd temp
-$ git clone https://github.com/josejuansanchez/taller-git-github
+mkdir temp
+cd temp
+git clone https://github.com/josejuansanchez/taller-git-github
 ```
+
 Se nos mostrará:
+
 ```
 Clonando en 'taller-git-github'...
 remote: Enumerating objects: 55, done.
@@ -168,22 +182,26 @@ taller-git-github/
 ├── README.md
 └── spelling.sh
 ```
+
 Lo habitual es que el contenido de un repositorio vaya cambiando con el tiempo: se arreglan errores, se amplía la funcionalidad con nuevas características, se cambia el aspecto de la aplicación, etc.
 
 Vamos a actualizar los repositorios que clonamos anteriormente. Primero accedemos a la carpeta del repositorio:
 
 ```bash
-$ cd taller-git-github/
+cd taller-git-github/
 ```
 
 y luego ejecutamos
+
 ```bash
 $ git pull
 Ya está actualizado.
 ```
+
 > Los repositorios clonados no se actualizan automáticamente como pasa por ejemplo con GoogleDrive o Dropbox. La actualización se debe hacer de forma manual con **git pull**.
 
 ### 4.3. Creando y modificando archivos
+
 Hasta ahora hemos aprendido a sincronizar en nuestro equipo un repositorio. Ahora vamos a ver que pasos son necesarios para que en el repositorio se almacenen las modificaciones que hagamos a los archivos o los nuevos archivos que creemos.
 
 #### git clone
@@ -197,13 +215,13 @@ Se nos mostrará la URL del repositorio y podremos copiarla directamente al port
 Accedemos a la carpeta en la que queremos almacenarlo:
 
 ```bash
-$ cd ~/Documentos
+cd ~/Documentos
 ```
 
 Y lo clonamos ejecutando:
 
 ```bash
-$ git clone https://github.com/ichigar/intro-github.git
+git clone https://github.com/ichigar/intro-github.git
 ```
 
 > Para **pegar** del portapapeles al terminal lo podemos hacer con la combinación de teclas **ctrl + shift + v**
@@ -211,13 +229,16 @@ $ git clone https://github.com/ichigar/intro-github.git
 Accedemos a la carpeta de inicio del repositorio:
 
 ```bash
-$ cd intro-github
+cd intro-github
 ```
+
 Si listamos el contenido de la carpeta mostrando los archivos ocultos:
+
 ```bash
 $ ls -a
 .  ..  .git  README.md
 ```
+
 Vemos que contiene el fichero README.md que añadimos al crear el repositorio y la carpeta oculta `.git` que contiene todos los ficheros de configuración que **git** necesita para funcionar.
 
 #### git add
@@ -225,11 +246,12 @@ Vemos que contiene el fichero README.md que añadimos al crear el repositorio y 
 Vamos a añadir nuevo contenido. Creamos una carpeta y dentro de la misma un archivo de texto:
 
 ```bash
-$ mkdir test
-$ cd test
-$ nano prueba.md
-$ cd ..
+mkdir test
+cd test
+nano prueba.md
+cd ..
 ```
+
 >Insertamos algun texto en el archivo y teclemaos  `CTRL + X` para guardar y salir.
 
 Hay un comando muy útil que, en ocasiones, nos puede ayudar a solventar posibles errores y nos da pistas sobre el estado actual del repositorio y sobre cuál es el siguiente paso que hay que dar, se trata de `git status`.
@@ -245,15 +267,15 @@ Archivos sin seguimiento:
 
 no hay nada agregado al commit pero hay archivos sin seguimiento presentes (usa "git add" para hacerles seguimiento)
 ```
-Básicamente, lo que nos está diciendo `git status` es que hemos añadido el archivo `prueba.md` a nuestro repositorio pero no lo estamos teniendo en cuenta de cara a futuras actualizaciones. Además nos está dando una pista muy importante sobre elsiguiente paso: utilizar el comando **git add** seguido del nombre del archivo.
 
+Básicamente, lo que nos está diciendo `git status` es que hemos añadido el archivo `prueba.md` a nuestro repositorio pero no lo estamos teniendo en cuenta de cara a futuras actualizaciones. Además nos está dando una pista muy importante sobre elsiguiente paso: utilizar el comando **git add** seguido del nombre del archivo.
 
 Para que **git** haga seguimiento de un archivo se lo debemos indicar con el comando `git add test/prueba.md`. Ahora bien, lo normal es añadir, modificar y borrar con frecuencia muchos ficheros de un repositorio; hacer **git add** para cada uno de ellos puede resultar tedioso y, lo peor, se nos puede olvidar alguno.
 
 En la práctica, lo más cómodo es utilizar `git add . --all` (fíjate que hay un punto detrás de add), de esta manera Git chequea todos los archivos que se han añadido al directorio y a cualquiera de los subdirectorios que contiene y todas las modificaciones que se han realizado.
 
 ```bash
-$ git add . --all
+git add . --all
 ```
 
 Si después de teclear git add . --all no se muestra ningún mensaje, todo va bien.
@@ -271,6 +293,7 @@ Cambios a ser confirmados:
   (usa "git restore --staged <archivo>..." para sacar del área de stage)
         nuevo archivo:  test/prueba.md
 ```
+
 La línea **Cambios a ser confirmados** indica que al archivo `prueba.md`, al que se le está haciendo seguimiento tiene cambios que deben aplicarse (o en la terminología de **git** debe hacerse un *commit*) para que dichos cambios formen parte de la rama actual con la que estamos trabajando. Para ello ejecutamos:
 
 ```bash
@@ -279,6 +302,7 @@ $ git commit -m "Añadido fichero prueba.md"
  1 file changed, 1 insertion(+)
  create mode 100644 test/prueba.md
 ```
+
 Fíjate que debemos escribir tras la opción **-m** un mensaje explicativo indicando en qué consisten los cambios realizados.
 
 #### git push
@@ -291,7 +315,7 @@ Para generar el token tienes las instrucciones del [siguiente tutorial](https://
 
 Al final del procedimiento obtendremos una cadena de texto de la forma `ghp_ICfUCaabcwKVEXIVcoO1pWfTwMvs4B26BGkP`
 
-Ahora ya podemos subir los cambios ejecutando **git push https://<GITHUB_ACCESS_TOKEN>@github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git** reemplazando <GITHUB_ACCESS_TOKEN>, <GITHUB_USERNAME>, <REPOSITORY_NAME> con el token, nuestro usuario en GitHub y el nombre del repositorio.
+Ahora ya podemos subir los cambios ejecutando **git push <https://<GITHUB_ACCESS_TOKEN>@github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git>** reemplazando <GITHUB_ACCESS_TOKEN>, <GITHUB_USERNAME>, <REPOSITORY_NAME> con el token, nuestro usuario en GitHub y el nombre del repositorio.
 
 ```bash
 $ git push https://ghp_ICfUCaabcwKVEXIVcoO1pWfTwMvs4B26BGkP@github.com/ichigar/intro-github.git
@@ -304,6 +328,7 @@ Total 4 (delta 0), reusado 0 (delta 0)
 To https://github.com/ichigar/intro-github.git
    68645ab..e81d046  main -> main
 ```
+
 Si accedemos ahora a la web de nuestro repositorio veremos que se ha subido el archivo que creamos anteriormente:
 
 ![](https://i.imgur.com/sVWC62x.png)
@@ -311,6 +336,8 @@ Si accedemos ahora a la web de nuestro repositorio veremos que se ha subido el a
 **Actividad 5**. Inserta captura en la que se muestre el contenido de la subcarpeta test en el repositorio **intro-github** de tu usuario:
 
 ## Referencias
+
 * [Guía de Supervivencia de Git y GitHub](https://leanpub.com/gitygithub)
 * [Guía para crear PAT en Github](https://techglimpse.com/git-push-github-token-based-passwordless/)
+
 ###### tags: `dpl` `ut1` `git` `github` `introducción`
