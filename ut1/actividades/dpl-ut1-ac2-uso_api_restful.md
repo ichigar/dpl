@@ -8,7 +8,9 @@
 - - **1.a** Se han analizado aspectos generales de arquitecturas Web, sus características, ventajas e inconvenientes.
   - **1.b** Se han descrito los fundamentos y protocolos en los que se basa el funcionamiento de un servidor Web.
 
-
+## Recursos
+* [onlinecode.org - Llamadas a API REST con php usando curl](http://www.onlinecode.org/call-curl-get-post-put-delete-php/)
+* [idento.es - ¿Qué es una API REST? ](https://www.idento.es/blog/desarrollo-web/que-es-una-api-rest/)
 
 ## Actividad 
 
