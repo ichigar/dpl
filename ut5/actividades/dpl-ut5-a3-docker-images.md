@@ -242,11 +242,19 @@ A partir de la imagen en docker de Ubuntu `ubuntu:20.04` usando un `Dockerfile` 
 
 En el [siguiente tutorial](https://serverok.in/build-a-docker-container-with-apache) tienes un ejemplo de cómo crear una imagen de Ubuntu con Apache, aunque no es exactamente igual a lo que se pide.
 
-Entrega la carpeta del proyecto comprimida. Dicha carpeta debe contener:
+Entrega la carpeta del proyecto comprimida o un enlace a Github que contenga todos los archivos y carpetas. 
+
+La carpeta debe contener:
 
 * Un fichero `README.md` con las instrucciones para crear y ejecutar la imagen
 * El fichero `Dockerfile` 
 * Los archivos que son copiados a la imagen.
+
+## Complemetario
+
+1. Hacer que los logs de Apache2 se muestren al ejecutar `docker logs imagen` en el [siguente tutorial](https://docs.docker.com/config/containers/logging/) se encuentra la información de cómo hacerlo.
+
+2. Realizar los mismos pasos para conseguir una imagen docker para `testdocker.local` tomando como imagen base `alpine`
 
 ## Recursos
 
