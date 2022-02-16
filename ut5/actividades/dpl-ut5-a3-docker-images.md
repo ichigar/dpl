@@ -1,4 +1,4 @@
-# DPL-UT5-A3. Docker
+# DPL-UT5-A3. Docker. Creación de imágenes.
 
 ## Imágenes de docker. 
 
@@ -216,8 +216,6 @@ Si en el navegador accedemos a `http://localhost:8100` se debería abrir el fich
 
 ## Actividad
 
-### Producto
-
 A partir de la imagen en docker de Ubuntu `ubuntu:20.04` usando un `Dockerfile` crea una imagen con las siguientes especificaciones:
 
 * Debe contener el servidor web Apache
@@ -228,9 +226,7 @@ A partir de la imagen en docker de Ubuntu `ubuntu:20.04` usando un `Dockerfile` 
 
 **Nota:** Debes crear localmente los archivos de configuración y usando la instrucción `COPY` copiarlos en el contenedor. Con la instrucción `RUN` debes ejecutar los comandos necesarios para que la imagen base de Ubuntu instale el software necesario.
 
-### Entrega 
-
-Carpeta del proyecto comprimida. Dicha carpeta debe contener:
+Entrega la carpeta del proyecto comprimida. Dicha carpeta debe contener:
 
 * Un fichero `README.md` con las instrucciones para crear y ejecutar la imagen
 * El fichero `Dockerfile` 
