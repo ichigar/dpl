@@ -1,4 +1,4 @@
-# DPL-UT5-A3. Docker. Creación de imágenes.
+# DPL-UT5-A3. Docker. Creación de imágenes y conetenedores.
 
 ## Imágenes de docker. 
 
