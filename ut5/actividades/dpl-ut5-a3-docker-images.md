@@ -228,6 +228,26 @@ CONTAINER ID   IMAGE             COMMAND                  CREATED          STATU
 
 Si en el navegador accedemos a `http://localhost:8100` se debería abrir el fichero HTML que copiamos a la imagen.
 
+## Eliminado imágenes
+Para ver todas las imágenes existentes en nuestro sistema:
+
+```bash
+$ docker images -a
+```
+
+Para eliminar una imagen:
+
+```bash
+$ docker rmi -f <imagen>
+```
+
+En caso que queramos regenerar eliminar toda la cache de Docker en nuestro equipo:
+
+```bash
+$ docker prune -a
+```
+Más información en el [siguiente enlace](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
+
 ## Actividad
 
 A partir de la imagen en docker de Ubuntu `ubuntu:20.04` usando un `Dockerfile` crea una imagen con las siguientes especificaciones:
@@ -236,7 +256,6 @@ A partir de la imagen en docker de Ubuntu `ubuntu:20.04` usando un `Dockerfile` 
 * Host Virtual para el dominio `testdocker.local` y `www.testdocker.local`
 * Carpeta raíz de la web `/var/www/testdocker.local/html`
 * Al acceder desde la máquina virtual de Xubuntu a `testdocker.local` o `www.testdocker.local` se debe ver una página que informe de que estamos en dicha web.
-* Añade soporte para **PHP** y una página `info.php` en el directorio raíz de la imagen para comprobar su funcionamiento.
 
 **Nota:** Debes crear localmente los archivos de configuración y usando la instrucción `COPY` copiarlos en el contenedor. Con la instrucción `RUN` debes ejecutar los comandos necesarios para que la imagen base de Ubuntu instale el software necesario.
 
@@ -262,5 +281,6 @@ La carpeta debe contener:
 * [Dockerfile tutorial by example - basics and best practices - Takacsmark.com](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/)
 * [Buenas prácticas al crear imágenes con Docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 * [Build a docker container with apache - Serverok](https://serverok.in/build-a-docker-container-with-apache)
+* [Eliminar imágenes de docker - Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
 
 ###### tags: `dpl` `ut5` `contenedores` `docker` `dockerfile`
