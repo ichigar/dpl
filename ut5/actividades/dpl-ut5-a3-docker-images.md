@@ -81,7 +81,7 @@ Para cambiar la configuración de un contenedor debemos parárlo, eliminarlo y c
 ```bash
 $ docker stop my-nginx
 $ docker rm my-nginx
-docker run --name my-nginx -d -p 8091:80 nginx:1.10.1-alpine
+$ docker run --name my-nginx -d -p 8091:80 nginx:1.10.1-alpine
 ```
 
 Para ver los detalles del contenedor:
@@ -247,6 +247,32 @@ En caso que queramos regenerar eliminar toda la cache de Docker en nuestro equip
 $ docker prune -a
 ```
 Más información en el [siguiente enlace](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
+
+## Resumen de comandos
+
+### Imágenes
+
+```bash
+$ docker pull <imagen>
+$ docker run --name my-nginx -d -p 8090:80 nginx:1.10.1-alpine
+$ docker build -t perso-nginx:1.0 .   # Crear imagen
+$ docker build --no-cache -t perso-nginx:1.0 .  # Regenera imagen completamente
+$ docker images -a
+$ docker rmi <imagen>            # elimina imagen
+$ docker rmi -f <imagen>         # fuerza eliminación imagen
+$ docker prune -a
+```
+### Contenedores
+```bash
+$ docker ps    # Contenedores en ejecución
+$ docker ps -a # Contenedores detenidos
+$ docker stop <contenedor>
+$ docker rm <contenedor>
+$ docker inspect <contenedor>
+$ docker logs <contenedor>
+$ docker logs -f <contenedor>
+$ docker exec -ti <contenedor> /bin/sh
+```
 
 ## Actividad
 
