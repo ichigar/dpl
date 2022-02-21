@@ -304,6 +304,7 @@ La carpeta debe contener:
 ## Recursos
 
 * [Getting started with docker - Takacsmark.com](https://takacsmark.com/getting-started-with-docker-in-your-project-step-by-step-tutorial/)
+* [Getting started with docker - docker.coo](https://docs.docker.com/get-started/)
 * [Dockerfile tutorial by example - basics and best practices - Takacsmark.com](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/)
 * [Buenas prácticas al crear imágenes con Docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 * [Build a docker container with apache - Serverok](https://serverok.in/build-a-docker-container-with-apache)
