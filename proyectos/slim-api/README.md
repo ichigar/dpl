@@ -39,6 +39,34 @@ vendor/
     $app = new Slim\App();
 ```
 
+**Paso 3:** Creamos base de datos de ejemplo. Le agregamos una tabla y le introducimos datos de ejemplo:
+
+```sql
+CREATE DATABASE library;
+
+USE library;
+
+CREATE TABLE IF NOT EXISTS `books` (
+
+ `id` int(11) PRIMARY KEY AUTO_INCREMENT,
+
+ `name` varchar(100) NOT NULL,
+
+ `isbn` varchar(100),
+
+ `category` varchar(100)
+
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+INSERT INTO `books` (`id`, `name`, `isbn`, `category`) VALUES
+
+(1, 'PHP', 'bk001', 'Server Side'),
+
+(3, 'javascript', 'bk002', 'Client Side'),
+
+(4, 'Python', 'bk003', 'Data Analysis'); 
+```
+
 **Paso 4:** Modificar Host virtual de nginx
 
 ```
