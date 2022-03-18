@@ -1,4 +1,4 @@
-# DPL-UT5-A3. Docker
+# DPL-UT5-A3. Docker. Creación de imágenes y conetenedores.
 
 ## Imágenes de docker. 
 
@@ -81,7 +81,7 @@ Para cambiar la configuración de un contenedor debemos parárlo, eliminarlo y c
 ```bash
 $ docker stop my-nginx
 $ docker rm my-nginx
-docker run --name my-nginx -d -p 8091:80 nginx:1.10.1-alpine
+$ docker run --name my-nginx -d -p 8091:80 nginx:1.10.1-alpine
 ```
 
 Para ver los detalles del contenedor:
@@ -171,9 +171,23 @@ INSTRUCTION arguments
 La primera instrucción debe ser `FROM` que nos permite especificar de que imagen vamos a derivar la que estamos creando.
 
 Otras instrucciones que podemos usar son:
-* `MAINTAINER` para especificar el correo de la persona que crea la imagen.
-* `RUN` para ejecutar acciones en el contenedor
-* `COPY` para copiar archivos locales al contenedor
+
+| INSTRUCTION | Description                                                  |
+| ----------- | ------------------------------------------------------------ |
+| FROM        | iIt sets the Base Image for subsequent instructions.         |
+| MAINTAINER  | It sets the Author field of the generated images.            |
+| RUN         | It will execute any commands when Docker image will be created. |
+| CMD         | It will execute any commands when Docker container will be executed. |
+| ENTRYPOINT  | It will execute any commands when Docker container will be executed. |
+| LABEL       | It adds metadata to an image.                                |
+| EXPOSE      | It informs Docker that the container will listen on the specified network ports at runtime. |
+| ENV         | It sets the environment variable.                            |
+| ADD         | It copies new files, directories or remote file URLs.        |
+| COPY        | It copies new files or directories.  The differences of [ADD] are that it's impossible to specify remore URL  and also it will not extract archive files automatically. |
+| VOLUME      | It creates a mount point with the specified name and marks it as holding  externally mounted volumes from native host or other containers |
+| USER        | It sets the user name or UID.                                |
+| WORKDIR     | It sets the working directory.                               |
+
 
 Crea en la carpeta de tu proyecto un fichero de nombre `Dockerfile` con el siguiente contenido:
 
@@ -214,9 +228,53 @@ CONTAINER ID   IMAGE             COMMAND                  CREATED          STATU
 
 Si en el navegador accedemos a `http://localhost:8100` se debería abrir el fichero HTML que copiamos a la imagen.
 
-## Actividad
+## Eliminado imágenes
+Para ver todas las imágenes existentes en nuestro sistema:
 
-### Producto
+```bash
+$ docker images -a
+```
+
+Para eliminar una imagen:
+
+```bash
+$ docker rmi -f <imagen>
+```
+
+En caso que queramos regenerar eliminar toda la cache de Docker en nuestro equipo:
+
+```bash
+$ docker prune -a
+```
+Más información en el [siguiente enlace](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
+
+## Resumen de comandos
+
+### Imágenes
+
+```bash
+$ docker pull <imagen>
+$ docker run --name my-nginx -d -p 8090:80 nginx:1.10.1-alpine
+$ docker build -t perso-nginx:1.0 .   # Crear imagen
+$ docker build --no-cache -t perso-nginx:1.0 .  # Regenera imagen completamente
+$ docker images -a
+$ docker rmi <imagen>            # elimina imagen
+$ docker rmi -f <imagen>         # fuerza eliminación imagen
+$ docker prune -a
+```
+### Contenedores
+```bash
+$ docker ps    # Contenedores en ejecución
+$ docker ps -a # Contenedores detenidos
+$ docker stop <contenedor>
+$ docker rm <contenedor>
+$ docker inspect <contenedor>
+$ docker logs <contenedor>
+$ docker logs -f <contenedor>
+$ docker exec -ti <contenedor> /bin/sh
+```
+
+## Actividad
 
 A partir de la imagen en docker de Ubuntu `ubuntu:20.04` usando un `Dockerfile` crea una imagen con las siguientes especificaciones:
 
@@ -224,19 +282,32 @@ A partir de la imagen en docker de Ubuntu `ubuntu:20.04` usando un `Dockerfile` 
 * Host Virtual para el dominio `testdocker.local` y `www.testdocker.local`
 * Carpeta raíz de la web `/var/www/testdocker.local/html`
 * Al acceder desde la máquina virtual de Xubuntu a `testdocker.local` o `www.testdocker.local` se debe ver una página que informe de que estamos en dicha web.
-* Añade soporte para **PHP** y una página `info.php` en el directorio raíz de la imagen para comprobar su funcionamiento.
 
 **Nota:** Debes crear localmente los archivos de configuración y usando la instrucción `COPY` copiarlos en el contenedor. Con la instrucción `RUN` debes ejecutar los comandos necesarios para que la imagen base de Ubuntu instale el software necesario.
 
-### Entrega 
+En el [siguiente tutorial](https://serverok.in/build-a-docker-container-with-apache) tienes un ejemplo de cómo crear una imagen de Ubuntu con Apache, aunque no es exactamente igual a lo que se pide.
 
-Carpeta del proyecto comprimida. Dicha carpeta debe contener:
+Entrega la carpeta del proyecto comprimida o un enlace a Github que contenga todos los archivos y carpetas. 
+
+La carpeta debe contener:
 
 * Un fichero `README.md` con las instrucciones para crear y ejecutar la imagen
 * El fichero `Dockerfile` 
 * Los archivos que son copiados a la imagen.
+
+## Complemetario
+
+1. Hacer que los logs de Apache2 se muestren al ejecutar `docker logs imagen` en el [siguente tutorial](https://docs.docker.com/config/containers/logging/) se encuentra la información de cómo hacerlo.
+
+2. Realizar los mismos pasos para conseguir una imagen docker para `testdocker.local` tomando como imagen base `alpine`
+
 ## Recursos
 
 * [Getting started with docker - Takacsmark.com](https://takacsmark.com/getting-started-with-docker-in-your-project-step-by-step-tutorial/)
+* [Getting started with docker - docker.coo](https://docs.docker.com/get-started/)
 * [Dockerfile tutorial by example - basics and best practices - Takacsmark.com](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/)
+* [Buenas prácticas al crear imágenes con Docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+* [Build a docker container with apache - Serverok](https://serverok.in/build-a-docker-container-with-apache)
+* [Eliminar imágenes de docker - Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
+
 ###### tags: `dpl` `ut5` `contenedores` `docker` `dockerfile`
